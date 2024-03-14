@@ -21,7 +21,7 @@ export const asyncloadmovie= (id)=> async (dispatch,getstate)=>{
             translations:translations.data.translations.map((t)=>(
                 t.english_name
             )),
-            videos:videos.data.results.find((key)=>key.type === 'trailer'),
+            videos:videos.data.results.find((i)=>i.type === 'Trailer'),
             watchproviders:watchproviders.data.results.IN
         };
         dispatch(loadmovie(theultimate));

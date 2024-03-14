@@ -4,7 +4,6 @@ import { asyncloadmovie } from "../actions/Movieactions";
 import {
   Link,
   Outlet,
-  useLoaderData,
   useLocation,
   useNavigate,
   useParams,
@@ -24,12 +23,15 @@ export default function Movie() {
       dispatch(removemovie());
     };
   }, [id]);
+  
   return info ? (
     <div
       style={{
-        background: `url(https://image.tmdb.org/t/p/original/${info.detail.backdrop_path || info.detail.profile_path || info.detail.poster_path})`,
+        background: `url(https://image.tmdb.org/t/p/original${info.detail.backdrop_path || info.detail.profile_path || info.detail.poster_path})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
+        width:"100vw",
+        minHeight:"100vh",
         backgroundRepeat: "no-repeat",
       }}
       className="w-screen h-[150vh] relative"
@@ -37,7 +39,7 @@ export default function Movie() {
       <nav className="w-full text-zinc-400 flex gap-10 text-xl px-[5vw]">
         <Link
           onClick={() => navigate(-1)}
-          className=" text-[2vw] hover:text-[#6556CD] cursor-pointer ri-arrow-left-line"
+          className=" text-[2vw] hover:text-[#6556CD] cursor-pointer text-zinc-700 ri-arrow-left-line"
         ></Link>
 
         <a href={info.detail.homepage} target="_blank">
@@ -60,7 +62,7 @@ export default function Movie() {
       <div className="w-full  flex  px-20">
         <img
           className="w-[20vw]  shadow-lg  h-[50vh] object-cover"
-          src={`https://image.tmdb.org/t/p/original/${info.detail.backdrop_path || info.detail.profile_path || info.detail.poster_path}`}
+          src={`https://image.tmdb.org/t/p/original${info.detail.backdrop_path || info.detail.profile_path || info.detail.poster_path}`}
           alt="img"
         />
         <div className="content   text-white ml-[5%] font-bold">
@@ -103,7 +105,7 @@ export default function Movie() {
 
           <Link
             className=" bg-[#6556CD] py-2  rounded-lg px-4"
-            to={`${pathname}/tralier`}
+            to={`${pathname}/trailer`}
           >
             <i className="text-xl ri-play-fill mr-3"></i>
             Play Tralier
@@ -154,8 +156,8 @@ export default function Movie() {
         )}
       </div>
 
-      <hr className="mt-10  mb-10 ml-5 mr-5 border-none h-[1px] bg-zinc-500"></hr>
-      <h1 className="text-3xl font-bold text-white">
+      <hr className="mt-10 mb-3 ml-5 mr-5 border-none h-[1px] bg-zinc-500"></hr>
+      <h1 className="text-3xl font-bold text-white ml-5">
         Recommendations & Similar stuff
       </h1>
       <HorizontalCard
