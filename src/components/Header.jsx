@@ -24,7 +24,7 @@ function Header({data}) {
         <i className="ri-play-circle-fill ml-2"></i>{data.media_type.toUpperCase()}
         </p>
 
-        <Link className='bg-[#6556CD] rounded-md font-semibold mt-5 p-2'>Watch Trailer</Link>
+        <Link  to={`/${data.media_type}/details/${data.id}/trailer`} className='bg-[#6556CD] rounded-md font-semibold mt-5 p-2'>Watch Trailer</Link>
     </div>
   )
 }

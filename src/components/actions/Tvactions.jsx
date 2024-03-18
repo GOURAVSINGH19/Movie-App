@@ -1,18 +1,18 @@
 import axios from '../../utiis/Axios'
-import { loadmovie } from '../Redux/Movieslice'
-export {removemovie} from '../Redux/Movieslice'
+import { loadmovie } from '../Redux/Tvslice'
+export {removemovie} from '../Redux/Tvslice'
 
 
 
 export const asyncloadmovie= (id)=> async (dispatch,getstate)=>{
     try{
-        const detail= await axios.get(`/movie/${id}`);
-        const externalid=await axios.get(`/movie/${id}/external_ids`);
-        const recommendations=await axios.get(`/movie/${id}/recommendations`);
-        const similar=await axios.get(`/movie/${id}/similar`);
-        const videos=await axios.get(`/movie/${id}/videos`);
-        const translations=await axios.get(`/movie/${id}/translations`)
-        const watchproviders=await axios.get(`/movie/${id}/watch/providers`);
+        const detail= await axios.get(`/tv/${id}`);
+        const externalid=await axios.get(`/tv/${id}/external_ids`);
+        const recommendations=await axios.get(`/tv/${id}/recommendations`);
+        const similar=await axios.get(`/tv/${id}/similar`);
+        const videos=await axios.get(`/tv/${id}/videos`);
+        const translations=await axios.get(`/tv/${id}/translations`)
+        const watchproviders=await axios.get(`/tv/${id}/watch/providers`);
         let theultimate={
             detail:detail.data,
             externalid:externalid.data,
@@ -25,7 +25,6 @@ export const asyncloadmovie= (id)=> async (dispatch,getstate)=>{
             watchproviders:watchproviders.data.results.IN
         };
         dispatch(loadmovie(theultimate));
-        console.log(theultimate)
     }
     catch(error){
         console.log(error);

@@ -9,14 +9,11 @@ const personSlice =createSlice({
     name:"person",
     initialState,
     reducers:{
-        loadmovie:(state,action)=>{
+        loadperson:(state,action)=>{
             state.info=action.payload
-        },
-        removemovie:(state,action)=>{
-            state.info=null;
         }
     },
 })
 
-export const {loadmovie,removemovie}=personSlice.actions;
+export const {loadperson}=personSlice.actions;
 export default personSlice.reducer;

@@ -5,11 +5,13 @@ import axios from '../utiis/Axios'
 import Header from './Header'
 import HorizontalCard from './HorizontalCard'
 import Loader  from './Loader'
+import Dropdown  from './Dropdown'
 
 function Home() {
     document.title = "SCSDB | HomePage"
     const [bgc, setbgc] = useState(null)
-    const [Trending, setTrending] = useState(null)
+    const [Trending, setTrending] = useState(null);
+    const [Category, setCategory] = useState("all")
 
     const getsearchbgc= async ()=>{
       try{  
@@ -24,7 +26,7 @@ function Home() {
 
     const getTrending= async ()=>{
       try{
-        const {data}=await axios.get(`/trending/all/day`);
+        const {data}=await axios.get(`/trending/${Category}/day`);
         setTrending(data.results)
       }
       catch(err){
@@ -35,16 +37,16 @@ function Home() {
 
     useEffect(()=>{
       !bgc && getsearchbgc();
-      !Trending && getTrending()
-    },[])
+       getTrending()
+    },[Category])
   
-  return bgc ? (
+  return Trending && bgc ? (
     <>
         <Navbar/>
         <div className='w-[80%] h-full overflow-hidden overflow-y-auto'>
           <Topnav/>
           <Header data={bgc}/>
-          <HorizontalCard data={Trending}  />
+          <HorizontalCard data={Trending} />
         </div>
     </>
   ):(<Loader/>)

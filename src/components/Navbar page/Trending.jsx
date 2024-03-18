@@ -13,6 +13,7 @@ function Trending() {
   const [Category, setCategory] = useState("all");
   const [duration, setduration] = useState("day");
   const [Trending, setTrending] = useState([]);
+  console.log(Trending)
   const[page,setpage]=useState(1)
   const [hasMore, setHasMore] = useState(true)
 
@@ -79,7 +80,7 @@ function Trending() {
           hasMore={hasMore}
           loader={<Loader />}
         >
-          <Card data={Trending} title={Category} />
+          <Card data={Trending} title={"trending"} />
         </InfiniteScroll>
       </div>
     </div>

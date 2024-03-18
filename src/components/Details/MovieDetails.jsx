@@ -11,7 +11,7 @@ import {
 import { removemovie } from "../Redux/Movieslice";
 import Loader from "../Loader";
 import HorizontalCard from "../HorizontalCard";
-export default function Movie() {
+export default function Movie({data}) {
   const { pathname } = useLocation();
   const { info } = useSelector((state) => state.movie);
   const navigate = useNavigate();
@@ -30,11 +30,10 @@ export default function Movie() {
         background: `url(https://image.tmdb.org/t/p/original${info.detail.backdrop_path || info.detail.profile_path || info.detail.poster_path})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
-        width:"100vw",
-        minHeight:"100vh",
+        width:"100%",
         backgroundRepeat: "no-repeat",
       }}
-      className="w-screen h-[150vh] relative"
+      className="w-full h-[150vh] relative"
     >
       <nav className="w-full text-zinc-400 flex gap-10 text-xl px-[5vw]">
         <Link
@@ -161,7 +160,7 @@ export default function Movie() {
         Recommendations & Similar stuff
       </h1>
       <HorizontalCard
-        data={info.recommendations? info.recommendations : info.similar}
+        data={info.recommendations.length >0 ? info.recommendations : info.similar}
       />
       <Outlet />
     </div>
