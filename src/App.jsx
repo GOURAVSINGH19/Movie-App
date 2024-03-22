@@ -10,6 +10,8 @@ import MovieDetails from "./components/Details/MovieDetails";
 import TvDetails from "./components/Details/TvDetails";
 import Trailer from "./components/Trailer";
 import Notfound from "./components/404";
+import Logout from "./components/Logout/logout";
+import Login from './components/LogIn/Login'
 function App() {
   return (
     <div className=" bg-zinc-800  w-screen h-screen flex">
@@ -28,6 +30,8 @@ function App() {
         </Route>
         <Route path="/person/details/:id" element={<PersonDetails />} />
         <Route path="*" element={<Notfound/>}></Route>
+        <Route path="/logout" element={<Logout/>}/>
+        <Route path="/login" element={<Login/>}/>
       </Routes>
     </div>
   );
