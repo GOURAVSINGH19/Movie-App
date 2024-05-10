@@ -21,13 +21,6 @@ function Navbar() {
               <h1 className="ml-2 text-[1.3vw]">Trending</h1>
             </NavLink>
             <NavLink
-              to="/popular"
-              className="hover:bg-[#6556cD] hover:text-white p-3 duration-300 rounded-md flex items-center"
-            >
-              <i classname="ri-bard-fill hover:text-yellow-300"></i>
-              <h1 className="ml-2 text-[1.3vw]">Popular</h1>
-            </NavLink>
-            <NavLink
               to="/movie"
               className="hover:bg-[#6556cD] hover:text-white p-3 duration-300 rounded-md flex items-center"
             >
