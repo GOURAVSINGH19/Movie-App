@@ -52,9 +52,9 @@ function Navbar() {
         </nav>
 
         <hr className="border-zinc-600 mt-5" />
-        <nav className="flex flex-col text-zinc-400 c gap-3">
+         {/* <nav className="flex flex-col text-zinc-400 c gap-3">
           <div className="flex-col flex text-zinc-400">
-            <h1 className="text-white font-semibold text-xl mt-5 mb-5">
+            {/* <h1 className="text-white font-semibold text-xl mt-5 mb-5">
               New Feeds
             </h1>
             <NavLink
@@ -69,8 +69,8 @@ function Navbar() {
             >
               Contact
             </NavLink>
-          </div>
-        </nav>
+          </div> 
+        </nav> */}
       </div>
     </>
   );
