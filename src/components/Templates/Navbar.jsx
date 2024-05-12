@@ -6,7 +6,7 @@ function Navbar() {
       <div className="w-[20%] h-full  border-r-2 border-zinc-800 p-5">
         <h1 className="text-2xl text-white font-bold flex items-center">
           <i className=" text-[#6556cD] ri-tv-fill"></i>
-          <span className="ml-2">SCSDB</span>
+          <span className="ml-2">Movies</span>
         </h1>
         <nav className="flex flex-col text-zinc-400 c gap-3">
           <div className="flex-col flex text-zinc-400">
